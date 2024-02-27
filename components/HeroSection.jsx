@@ -1,19 +1,35 @@
 import React from "react";
 import Image from "next/image";
+import { TypeAnimation } from "react-type-animation";
 
 const HeroSection = () => {
   return (
     <section>
       <div className="grid grid-cols-1 md:grid-cols-12">
-        <div className="col-span-7 place-self-center text-center md:text-left">
-          <h1 className="text-white mb-4 text-4xl sm:text-5xl lg:text-6xl font-extrabold">
-            Hi, I'm Santano!
-            {/* <span className="text-transparent bg-clip-text bg-gradient-to-br from-[#1f303d] via-[#55153d] to-[#D01E4F]">
-              !
-            </span> */}
+        <div className="col-span-7 place-self-center text-center md:text-left w-full md:px-28">
+          <h1 className="text-white mb-4 text-2xl sm:text-5xl lg:text-6xl font-extrabold">
+            <span className="text-3xl md:text-5xl font-light ">Hi, I'm</span>{" "}
+            <br />
+            <TypeAnimation
+              sequence={[
+                // Same substring at the start will only be typed out once, initially
+                "Santano!",
+                3000, // wait 1s before replacing "Mice" with "Hamsters"
+                "A Motion Designer",
+                2000,
+                "A Video Editor",
+                2000,
+                "A Web Developer",
+                2000,
+              ]}
+              wrapper="span"
+              speed={50}
+              style={{ fontSize: "1em", display: "inline-block" }}
+              repeat={Infinity}
+            />
           </h1>
           <p className="text-[#949ea5] text-base md:text-lg lg:text-xl mb-6">
-            Lorem ipsum dolor sit amet consectetur adipisicing eli commodi.
+            Let's collaborate to make your vision a reality!
           </p>
           <div>
             <button className="px-6 py-3 w-full sm:w-fit rounded-full bg-gradient-to-br from-[#142029]  to-[#D01E4F] hover:scale-105 active:scale-95 transition transform ease-out text-white  mt-2">
