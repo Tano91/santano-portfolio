@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import { ArrowRightIcon } from "@heroicons/react/24/solid";
 import { TypeAnimation } from "react-type-animation";
 
 const HeroSection = () => {
@@ -33,7 +34,7 @@ const HeroSection = () => {
           </p>
           <div>
             <button className="px-6 py-3 w-full sm:w-fit rounded-full bg-gradient-to-br from-[#142029]  to-[#D01E4F] hover:scale-105 active:scale-95 transition transform ease-out text-white  mt-2">
-              Download CV
+              Resume <ArrowRightIcon className=" h-4 inline" />
             </button>
           </div>
         </div>
