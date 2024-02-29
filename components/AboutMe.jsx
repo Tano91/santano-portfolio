@@ -116,8 +116,8 @@ export const AboutMe = () => {
           <span className="pr-8">
             <TrophyIcon className="h-4 text-[#D01E4F]" />
           </span>{" "}
-          I've been fortunate to receive a range of awards throughout my career,
-          here are some examples!
+          I've been fortunate to receive a range of awards throughout my career!
+          Here are some examples:
         </p>
         {/* Awards */}
         <div className="flex flex-row mt-8">

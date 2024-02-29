@@ -32,6 +32,30 @@ const HeroSection = () => {
           <p className="text-[#949ea5] text-base md:text-lg lg:text-xl mb-6">
             Let's collaborate to make your vision a reality!
           </p>
+          {/* Icons */}
+          <div className="flex space-x-5 mb-4 justify-center">
+            <Image
+              src={"/vimeo.png"}
+              alt="vimeo image"
+              width={24}
+              height={24}
+              className="hover:scale-125 active:scale-95 transform transition ease-out"
+            />
+            <Image
+              src={"/linkedin.png"}
+              alt="linkedin image"
+              width={24}
+              height={24}
+              className="hover:scale-125 active:scale-95 transform transition ease-out"
+            />
+            <Image
+              src={"/github-logo.png"}
+              alt="guthub image"
+              width={24}
+              height={24}
+              className="hover:scale-125 active:scale-95 transform transition ease-out"
+            />
+          </div>
           <div>
             <button className="px-6 py-3 w-full sm:w-fit rounded-full bg-gradient-to-br from-[#142029]  to-[#D01E4F] hover:scale-105 active:scale-95 transition transform ease-out text-white  mt-2">
               Resume <ArrowRightIcon className=" h-4 inline" />
