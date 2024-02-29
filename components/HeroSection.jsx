@@ -1,8 +1,8 @@
 import React from "react";
 import Image from "next/image";
-import { ArrowRightIcon } from "@heroicons/react/24/solid";
+import { ArrowRightIcon, ChevronDownIcon } from "@heroicons/react/24/solid";
 import { TypeAnimation } from "react-type-animation";
-
+import { motion } from "framer-motion";
 const HeroSection = () => {
   return (
     <section>
@@ -73,6 +73,24 @@ const HeroSection = () => {
             />
           </div>
         </div>
+      </div>
+      <div className="flex justify-center mt-2">
+        <motion.div
+          initial={{ y: 0, opacity: 0 }} // Start at opacity 0
+          animate={{
+            y: ["0%", "30%"], // Move down
+            opacity: [0, 1, 0], // Opacity from 0 to 100 and back to 0
+          }}
+          transition={{
+            duration: 2, // Adjust duration as needed
+            ease: "easeInOut", // Ease in and out
+            repeat: Infinity, //
+            loop: Infinity, // Loop the animation indefinitely
+            times: [0, 0.5, 1], //  keyframes for the animation
+          }}
+        >
+          <ChevronDownIcon className="h-10 text-white" />
+        </motion.div>
       </div>
     </section>
   );
