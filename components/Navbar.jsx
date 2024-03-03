@@ -33,9 +33,16 @@ const Navbar = () => {
         >
           <Image
             src={"/tano_logo_white.png"}
+            as="logo"
             alt="home logo"
             width={50}
-            height={50}
+            height={30}
+            priority
+            sizes="50px auto"
+            style={{
+              width: "50px",
+              height: "30px",
+            }}
           />
         </Link>
         {/* Navbar Small Screens */}

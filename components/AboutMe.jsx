@@ -10,8 +10,8 @@ import { useState, useTransition } from "react";
 
 const TAB_DATA = [
   {
-    title: "Sandals Resorts International",
-    id: "Sandals Resorts International",
+    title: "Work Awards",
+    id: "Work Awards",
     content: (
       <>
         <p className="flex items-center  text-sm italic">
@@ -42,8 +42,8 @@ const TAB_DATA = [
     ),
   },
   {
-    title: "University of the West Indies",
-    id: "University of the West Indies",
+    title: "Educational Awards",
+    id: "Educational Awards",
     content: (
       <>
         <p className="flex items-center  text-sm italic">
@@ -62,7 +62,7 @@ const TAB_DATA = [
           <span className="pr-8">
             <ChevronRightIcon className="h-3" />
           </span>{" "}
-          Top Performing Student in Humanities and Education
+          Top Performing Student in Humanities and Educational Awards
         </p>
         <p className="flex items-center  text-sm italic">
           <span className="pr-8">
@@ -76,7 +76,7 @@ const TAB_DATA = [
 ];
 
 export const AboutMe = () => {
-  const [tab, setTab] = useState("Sandals Resorts International");
+  const [tab, setTab] = useState("Work Awards");
   const [isPending, startTransition] = useTransition();
 
   const handleTabChange = (id) => {
@@ -123,17 +123,17 @@ export const AboutMe = () => {
         <div className="flex flex-row mt-8">
           {/* Sandals Awards */}
           <TabButton
-            selectTab={() => handleTabChange("Sandals Resorts International")}
-            active={tab === "Sandals Resorts International"}
+            selectTab={() => handleTabChange("Work Awards")}
+            active={tab === "Work Awards"}
           >
-            Sandals Resorts International
+            Work Awards
           </TabButton>
           {/* UWI AWARDS */}
           <TabButton
-            selectTab={() => handleTabChange("University of the West Indies")}
-            active={tab === "University of the West Indies"}
+            selectTab={() => handleTabChange("Educational Awards")}
+            active={tab === "Educational Awards"}
           >
-            University of the West Indies
+            Educational Awards
           </TabButton>
         </div>
         {/* Tab Data */}
