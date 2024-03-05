@@ -10,7 +10,9 @@ const HeroSection = () => {
       <div className="grid grid-cols-1 md:grid-cols-12">
         <div className="col-span-7 place-self-center text-center md:text-left w-full md:px-28">
           <h1 className="text-white mb-4 text-2xl sm:text-5xl lg:text-6xl font-extrabold">
-            <span className="text-3xl md:text-5xl font-light ">Hi, I'm</span>{" "}
+            <span className="text-3xl md:text-5xl font-light ">
+              Hi, I&apos;m
+            </span>{" "}
             <br />
             <TypeAnimation
               sequence={[
@@ -31,7 +33,7 @@ const HeroSection = () => {
             />
           </h1>
           <p className="text-[#949ea5] text-base md:text-lg lg:text-xl mb-6">
-            Let's collaborate to make your vision a reality!
+            Let&apos;s collaborate to make your vision a reality!
           </p>
           {/* Icons */}
           <div className="flex space-x-5 mb-4 justify-center md:justify-start ">
