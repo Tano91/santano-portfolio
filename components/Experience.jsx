@@ -40,7 +40,7 @@ const Experience = ({ id }) => {
         image={"/company_logos/Tano_32x32.png"}
         company={"Freelance"}
         position={"Freelance Motion Graphic Designer & Vdeo Editor"}
-        date={"Aug 2013 - Present"}
+        date={"Mar 2013 - Present"}
         details={""}
       />
 

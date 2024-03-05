@@ -67,9 +67,16 @@ const HeroSection = () => {
             </Link>
           </div>
           <div>
-            <button className="px-6 py-3 w-full sm:w-fit rounded-full bg-gradient-to-br from-[#142029]  to-[#D01E4F] hover:scale-105 active:scale-95 transition transform ease-out text-white  mt-2">
-              Resume <ArrowRightIcon className=" h-4 inline" />
-            </button>
+            <Link
+              href={
+                "https://drive.google.com/file/d/1-E72HQg3clsgdzyQUQsXVss8I8evJ3si/view?usp=sharing"
+              }
+              target="_blank"
+            >
+              <button className="px-6 py-3 w-full sm:w-fit rounded-full bg-gradient-to-br from-[#142029]  to-[#D01E4F] hover:scale-105 active:scale-95 transition transform ease-out text-white  mt-2">
+                Resume <ArrowRightIcon className=" h-4 inline" />
+              </button>
+            </Link>
           </div>
         </div>
         <div className="col-span-5 place-self-center mt-10 lg:mt-0 ">
