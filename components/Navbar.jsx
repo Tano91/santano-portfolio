@@ -6,22 +6,36 @@ import Image from "next/image";
 import { useState } from "react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
 
-const navLinks = [
-  {
-    title: "About",
-    path: "#about",
-  },
-  {
-    title: "Projects",
-    path: "#projects",
-  },
-  {
-    title: "Contact",
-    path: "#contact",
-  },
-];
-
 const Navbar = () => {
+  const navLinks = [
+    {
+      title: "About",
+      path: "#about",
+    },
+    {
+      title: "Skills",
+      path: "#skills",
+    },
+    {
+      title: "Experience",
+      path: "#experience",
+    },
+    {
+      title: "Projects",
+      path: "#projects",
+    },
+    {
+      title: "Contact",
+      path: "#contact",
+    },
+  ];
+
+  const handleClick = (e, href) => {
+    e.preventDefault(); // Prevent the default action
+    const targetElement = document.querySelector(href);
+    targetElement.scrollIntoView({ behavior: "smooth" });
+  };
+
   const [navbarOpen, setNavbarOpen] = useState(false);
   return (
     <nav className="fixed top-0 left-0 right-0 z-10 bg-[#131e27] bg-opacity-100">
@@ -68,7 +82,11 @@ const Navbar = () => {
           <ul className="flex p-4 md:p-0 space-x-8 mt-0">
             {navLinks.map((link, index) => (
               <li key={index}>
-                <NavLinks href={link.path} title={link.title} />
+                <NavLinks
+                  href={link.path}
+                  title={link.title}
+                  onClick={(e) => handleClick(e, link.path)}
+                />
               </li>
             ))}
           </ul>
@@ -76,7 +94,7 @@ const Navbar = () => {
       </div>
       {/* Show Navlinks when Screen is below Medium and Navlinks is Open */}
       {navbarOpen && (
-        <div className="flex rounded-bl-2xl absolute  right-0 pl-6  md:hidden bg-[#D01E4f] w-36">
+        <div className="flex rounded-bl-2xl absolute right-0 pl-4 pr-8  md:hidden bg-[#D01E4f] w-36">
           <MenuOverlay links={navLinks} />
         </div>
       )}

@@ -278,7 +278,7 @@ const projectDataGraphic = [
   },
 ];
 
-const ProjectsSection = ({ videoData }) => {
+const ProjectsSection = ({ id, videoData }) => {
   const projectDataVimeo = videoData.map((video) => {
     return {
       title: video.name,
@@ -304,27 +304,26 @@ const ProjectsSection = ({ videoData }) => {
     project.tag.includes(tag)
   );
 
-  // console.log(projectDataVimeo);
-
   return (
-    <section className="text-white pt-5 md:px-28">
-      <div className="mb-10">
+    <section id={id} className="text-white mt-10 md:px-28">
+      <div className="mb-3">
         <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-center lg:text-start">
           Projects
         </h1>
       </div>
       {/* Button Tags */}
-      <div className="text-white flex flex-row justify-center items-center gap-2 py-6">
-        <ProjectTag
-          onClick={handleTagChange}
-          name="Web Dev"
-          isSelected={tag === "Web Dev"}
-        />
+      <div className="text-white flex flex-col space-y-5 sm:space-y-0 sm:flex-row justify-center items-center gap-2 py-6">
         <ProjectTag
           onClick={handleTagChange}
           name="Motion Graphics"
           isSelected={tag === "Motion Graphics"}
         />
+        <ProjectTag
+          onClick={handleTagChange}
+          name="Web Dev"
+          isSelected={tag === "Web Dev"}
+        />
+
         <ProjectTag
           onClick={handleTagChange}
           name="Graphic Design"

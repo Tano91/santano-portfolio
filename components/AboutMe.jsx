@@ -62,7 +62,7 @@ const TAB_DATA = [
           <span className="pr-8">
             <ChevronRightIcon className="h-3" />
           </span>{" "}
-          Top Performing Student in Humanities and Educational Awards
+          Top Performing Student in Humanities and Education Award
         </p>
         <p className="flex items-center  text-sm italic">
           <span className="pr-8">
@@ -75,7 +75,7 @@ const TAB_DATA = [
   },
 ];
 
-export const AboutMe = () => {
+export const AboutMe = ({ id }) => {
   const [tab, setTab] = useState("Work Awards");
   const [isPending, startTransition] = useTransition();
 
@@ -85,7 +85,7 @@ export const AboutMe = () => {
     });
   };
   return (
-    <section className="text-white pt-5 md:px-28">
+    <section id={id} className="text-white pt-5 md:px-28">
       <div className="mb-10">
         <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-center lg:text-start">
           About Me
@@ -142,7 +142,7 @@ export const AboutMe = () => {
         </div>
         {/* OUTRO */}
 
-        <p className="flex items-center pb-20">
+        <p className="flex items-center ">
           <span className="pr-8">
             <RocketLaunchIcon className="h-4 text-[#D01E4F]" />
           </span>{" "}
