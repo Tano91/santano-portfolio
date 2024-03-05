@@ -30,7 +30,7 @@ export default function Home({ videoData }) {
 export async function getServerSideProps() {
   const accessToken = process.env.NEXT_PUBLIC_VIMEO_BEARER_TOKEN;
   const url =
-    "https://api.vimeo.com/me/videos?page=1&per_page=100&sort=default";
+    "https://api.vimeo.com/me/videos?page=1&per_page=100&sort=alphabetical";
 
   try {
     const response = await fetch(url, {
