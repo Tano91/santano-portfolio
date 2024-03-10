@@ -4,6 +4,15 @@ import ProjectTag from "./ProjectTag";
 
 const projectDataWeb = [
   {
+    title: "YaadVentures",
+    description:
+      "A passion project of mine. It aims to galvanize users to explore, discuss and submit hidden gens, popular attractions, and interesting areas that illustrate the beauty of Jamaica. It is in its infancy, with many more features planned such as Mapbox integration, authorization and authentication (coming very soon!). Take a look!",
+    image: "/project_images/yaadventures_thumb.png",
+    tag: ["Web Dev"],
+    gitUrl: "https://github.com/Tano91/yaadventures",
+    previewUrl: "https://yaadventures.vercel.app",
+  },
+  {
     title: "Wedding Administration System",
     description:
       "A project based on a wedding administration system that we used for project management in my previous job. It was riddled with bugs, so I challenged myself to see if I could make an improved version.",

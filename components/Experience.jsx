@@ -39,7 +39,7 @@ const Experience = ({ id }) => {
       <ExperienceCard
         image={"/company_logos/Tano_32x32.png"}
         company={"Freelance"}
-        position={"Freelance Motion Graphic Designer & Vdeo Editor"}
+        position={"Freelance Motion Graphic Designer & Video Editor"}
         date={"Mar 2013 - Present"}
         details={""}
       />
@@ -55,7 +55,7 @@ const Experience = ({ id }) => {
       <ExperienceCard
         image={"/company_logos/breifcase_32x32.png"}
         company={"Maxine Walters Productions"}
-        position={"Viedo Production Intern"}
+        position={"Video Production Intern"}
         date={"Jul 2014 - Jul 2014"}
         details={""}
       />
