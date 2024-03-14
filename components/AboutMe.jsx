@@ -50,7 +50,7 @@ const TAB_DATA = [
           <span className="pr-8">
             <ChevronRightIcon className="h-3" />
           </span>{" "}
-          Graduated with First Class Honors
+          Graduated with First Class Honours
         </p>
         <p className="flex items-center  text-sm italic">
           <span className="pr-8">
@@ -106,8 +106,8 @@ export const AboutMe = ({ id }) => {
           <span className="pr-8">
             <AcademicCapIcon className="h-4 text-[#D01E4F]" />
           </span>{" "}
-          I have a Bachelor of Arts (Honors) in Digital Media Production from
-          the University of the West Indies, and I’ve remained dedicated to
+          I have a BA (Hons) in Digital Media Production - First Class Honours,
+          from the University of the West Indies, and I’ve remained dedicated to
           meticulously honing my skills across a broad spectrum of digital media
           production techniques.
         </p>
