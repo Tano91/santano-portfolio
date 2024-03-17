@@ -139,10 +139,10 @@ const Skills = ({ id }) => {
       </div>
       {/* Skills Details */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5">
-        <SkillsCard header={"Skillsets"} skills={skillSetSkills} />
+        <SkillsCard header={"Skill Sets"} skills={skillSetSkills} />
         <SkillsCard header={"Software"} skills={softwareSkills} />
         <SkillsCard header={"Languages"} skills={languagesSkills} />
-        <SkillsCard header={"Frameworks"} skills={frameworksSkills} />
+        <SkillsCard header={"Frameworks & Libraries"} skills={frameworksSkills} />
       </div>
     </section>
   );
