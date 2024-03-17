@@ -58,6 +58,10 @@ const softwareSkills = [
     image: "/skills_icons/photoshop_32x32.png",
   },
   {
+    skill: "WordPress",
+    image: "/skills_icons/wordpress_32x32.png",
+  },
+  {
     skill: "Figma",
     image: "/skills_icons/figma_32x32.png",
   },

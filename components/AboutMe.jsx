@@ -97,9 +97,9 @@ export const AboutMe = ({ id }) => {
           <span className="pr-8">
             <FingerPrintIcon className="h-4 text-[#D01E4F]" />
           </span>
-          Hi, I’m Santano! I’m a professional Digital Media Practitioner
-          passionate about Motion Design, Videography & Web Development with
-          over 10+ Years of experience!
+          Hi, I’m Santano! I’m a Digital Media Professional passionate about
+          Motion Design, Video Production & Web Development with over 10+ Years
+          of experience!
         </p>
 
         <p className="flex items-center">
@@ -107,7 +107,7 @@ export const AboutMe = ({ id }) => {
             <AcademicCapIcon className="h-4 text-[#D01E4F]" />
           </span>{" "}
           I have a BA (Hons) in Digital Media Production - First Class Honours,
-          from the University of the West Indies, and I’ve remained dedicated to
+          from The University of the West Indies, and I’ve remained dedicated to
           meticulously honing my skills across a broad spectrum of digital media
           production techniques.
         </p>
