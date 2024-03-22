@@ -13,7 +13,7 @@ const Experience = ({ id }) => {
       <ExperienceCard
         image={"/company_logos/Sandals_32x32.png"}
         company={"Sandals Resorts International"}
-        position={"Cheif Video Editor / Quality Control Supervisor"}
+        position={"Chief Video Editor / Quality Control Supervisor"}
         date={"Oct 2022 - Mar 2024"}
         details={""}
       />
