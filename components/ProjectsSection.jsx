@@ -24,7 +24,7 @@ const projectDataWeb = [
   {
     title: "YT Blender",
     description:
-      "I saw all those Youtube Converters and was curious how they made them, so I tried and made one with Vue!",
+      "I was curious about how something like this even works, and challenged myself to build it. It was just a fun project to play around with Vue, I have no real intention to use it or make it live, but I figured why not show it off?",
     image: "/project_images/yt_blender_thumb.png",
     tag: ["Web Dev"],
     gitUrl: "https://github.com/Tano91/yt-blender-fun",
