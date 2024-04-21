@@ -62,7 +62,8 @@ const TAB_DATA = [
           <span className="pr-8">
             <ChevronRightIcon className="h-3" />
           </span>{" "}
-          Top Performing Student in Humanities and Education Award
+          Dean's Honour Roll & Top Performing Student in Humanities and
+          Education Award
         </p>
         <p className="flex items-center  text-sm italic">
           <span className="pr-8">
@@ -98,8 +99,8 @@ export const AboutMe = ({ id }) => {
             <FingerPrintIcon className="h-4 text-[#D01E4F]" />
           </span>
           Hi, I’m Santano! I’m a Digital Media Professional passionate about
-          Motion Design, Video Production & Web Development with over 10+ Years
-          of experience!
+          Motion Design, Video Production, Web Development, Graphic Design &
+          Digital Marketing with over 10+ Years of experience!
         </p>
 
         <p className="flex items-center">
@@ -148,7 +149,7 @@ export const AboutMe = ({ id }) => {
           </span>{" "}
           I excel in navigating busy schedules, efficiently juggling multiple
           projects, and embracing new challenges as opportunities for continuous
-          learning and growth
+          learning and growth.
         </p>
       </div>
     </section>
