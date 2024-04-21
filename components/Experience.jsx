@@ -39,7 +39,7 @@ const Experience = ({ id }) => {
       <ExperienceCard
         image={"/company_logos/Tano_32x32.png"}
         company={"Freelance"}
-        position={"Freelance Motion Graphic Designer & Video Editor"}
+        position={"Freelance Digital Media Professional"}
         date={"Mar 2013 - Present"}
         details={""}
       />
