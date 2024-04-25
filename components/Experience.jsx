@@ -14,7 +14,15 @@ const Experience = ({ id }) => {
         image={"/company_logos/Sandals_32x32.png"}
         company={"Sandals Resorts International"}
         position={"Chief Video Editor / Quality Control Supervisor"}
-        date={"Oct 2022 - Mar 2024"}
+        date={"Sep 2023 - Mar 2024"}
+        details={""}
+      />
+
+      <ExperienceCard
+        image={"/company_logos/Sandals_32x32.png"}
+        company={"Sandals Resorts International"}
+        position={"Quality Control Supervisor"}
+        date={"Oct 2022 - Sep 2023"}
         details={""}
       />
 
@@ -30,7 +38,7 @@ const Experience = ({ id }) => {
         image={"/company_logos/UWI_Logo_32x32.png"}
         company={"University of the West Indies"}
         position={
-          "Adjunct Lecturer / Tutor - Motion Graphics & Time-Based Media"
+          "Adjunct Lecturer & Tutor, Motion Graphics & Time-Based Media"
         }
         date={"Jan 2017 - May 2021"}
         details={""}
