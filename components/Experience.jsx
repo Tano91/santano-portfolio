@@ -11,6 +11,13 @@ const Experience = ({ id }) => {
       </div>
       {/* Experience Details */}
       <ExperienceCard
+        image={"/company_logos/dcag_32x32.png"}
+        company={"Driving Change Automotive Group"}
+        position={"Content Specialist"}
+        date={"May 2024 - Present"}
+        details={""}
+      />
+      <ExperienceCard
         image={"/company_logos/Sandals_32x32.png"}
         company={"Sandals Resorts International"}
         position={"Chief Video Editor / Quality Control Supervisor"}

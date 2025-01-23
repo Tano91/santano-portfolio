@@ -71,7 +71,7 @@ const HeroSection = () => {
           <div>
             <Link
               href={
-                "https://drive.google.com/file/d/1-E72HQg3clsgdzyQUQsXVss8I8evJ3si/view?usp=sharing"
+                "https://drive.google.com/file/d/1Q4yXHt4BFU3I9ggrFQWGCdtfUkzkcFI4/view?usp=sharing"
               }
               target="_blank"
             >
