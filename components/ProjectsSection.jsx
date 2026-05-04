@@ -7,7 +7,7 @@ const projectDataWeb = [
     title: "Dr Bird Pree",
     description:
       "A personal project I have been interested in attempting for some time. Made using React with Nextjs. I'm happy with the result, and aim to expand it further.",
-    image: "/project_images/dr_bird_pree",
+    image: "/project_images/dr_bird_pree.png",
     tag: ["Web Dev"],
     gitUrl: "https://github.com/Tano91/dr-bird-pree",
     previewUrl: "https://dr-bird-pree.vercel.app",
@@ -20,15 +20,6 @@ const projectDataWeb = [
     tag: ["Web Dev"],
     gitUrl: "https://github.com/Tano91/yaadventures",
     previewUrl: "https://yaadventures.vercel.app",
-  },
-  {
-    title: "YT Blender",
-    description:
-      "I was curious about how something like this even works, and challenged myself to build it. It was just a fun project to play around with Vue, I have no real intention to use it or make it live, but I figured why not show it off?",
-    image: "/project_images/yt_blender_thumb.png",
-    tag: ["Web Dev"],
-    gitUrl: "https://github.com/Tano91/yt-blender-fun",
-    previewUrl: "https://yt-blender-fun.vercel.app",
   },
 ];
 
