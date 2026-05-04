@@ -1,23 +1,27 @@
 import React from "react";
 import { CodeBracketIcon, EyeIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
+import Image from "next/image";
 
 const ProjectCard = ({ imgUrl, title, description, gitUrl, previewUrl }) => {
   return (
     <div>
-      <div
-        className="h-52 md:h-72 rounded-t-xl relative group"
-        style={{
-          backgroundImage: `url(${imgUrl})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center center", // center the bg image
-        }}
-      >
+      <div className="h-52 md:h-72 rounded-t-xl relative group overflow-hidden bg-[#142029]">
+        {imgUrl && (
+          <Image
+            src={imgUrl}
+            alt={`${title} preview`}
+            fill
+            sizes="(min-width: 768px) 33vw, 100vw"
+            className="object-cover transition-transform duration-500 group-hover:scale-105"
+          />
+        )}
         <div className="overlay items-center justify-center absolute top-0 left-0 w-full h-full bg-[#142029] bg-opacity-0 hidden group-hover:flex group-hover:bg-opacity-80 transition-all duration-500 space-x-5">
           {gitUrl && (
             <Link
               href={gitUrl}
               target="_blank"
+              rel="noopener noreferrer"
               className="h-14 w-14 border-2 relative rounded-full border-white hover:border-[#D01E4F] flex items-center justify-center group/link"
             >
               <CodeBracketIcon className="h-10 w-10 text-white group-hover/link:text-[#D01E4F] cursor-pointer" />
@@ -26,6 +30,7 @@ const ProjectCard = ({ imgUrl, title, description, gitUrl, previewUrl }) => {
           <Link
             href={previewUrl}
             target="_blank"
+            rel="noopener noreferrer"
             className="h-14 w-14 border-2 relative rounded-full border-white hover:border-[#D01E4F] flex items-center justify-center group/link"
           >
             <EyeIcon className="h-10 w-10 text-white  group-hover/link:text-[#D01E4F] cursor-pointer" />

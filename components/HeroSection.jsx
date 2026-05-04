@@ -23,6 +23,8 @@ const HeroSection = () => {
                 2000,
                 "A Video Editor",
                 2000,
+                "A Graphic Designer",
+                2000,
                 "A Web Developer",
                 2000,
               ]}
@@ -37,7 +39,11 @@ const HeroSection = () => {
           </p>
           {/* Icons */}
           <div className="flex space-x-5 mb-4 justify-center md:justify-start ">
-            <Link href={"https://vimeo.com/santanomccalla"} target="_blank">
+            <Link
+              href={"https://vimeo.com/santanomccalla"}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Image
                 src={"/vimeo.png"}
                 alt="vimeo image"
@@ -49,6 +55,7 @@ const HeroSection = () => {
             <Link
               href={"https://www.linkedin.com/in/santano-mccalla/"}
               target="_blank"
+              rel="noopener noreferrer"
             >
               <Image
                 src={"/linkedin.png"}
@@ -58,7 +65,11 @@ const HeroSection = () => {
                 className="hover:scale-125 active:scale-95 transform transition ease-out cursor-pointer"
               />
             </Link>
-            <Link href={"https://github.com/Tano91"} target="_blank">
+            <Link
+              href={"https://github.com/Tano91"}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Image
                 src={"/github-logo.png"}
                 alt="guthub image"
@@ -74,6 +85,7 @@ const HeroSection = () => {
                 "https://drive.google.com/file/d/1Q4yXHt4BFU3I9ggrFQWGCdtfUkzkcFI4/view?usp=sharing"
               }
               target="_blank"
+              rel="noopener noreferrer"
             >
               <button className="px-6 py-3 w-full sm:w-fit rounded-full bg-gradient-to-br from-[#142029]  to-[#D01E4F] hover:scale-105 active:scale-95 transition transform ease-out text-white  mt-2">
                 Resume <ArrowRightIcon className=" h-4 inline" />
@@ -85,7 +97,6 @@ const HeroSection = () => {
           <div className="rounded-full bg-[#131e27] w-[200px] h-[200px] sm:w-[250px] sm:h-[250px] lg:w-[300px] lg:h-[300px] relative">
             <Image
               src={"/tano_logo_main.png"}
-              as="logo"
               priority
               alt="hero image"
               width={200}

@@ -8,11 +8,9 @@ const ExperienceCard = ({ image, company, position, date, details }) => {
         <div className="flex flex-col space-y-5 sm:space-y-0 sm:flex-row items-center space-x-4">
           <Image
             src={image}
-            as="logo"
-            alt="home logo"
+            alt={`${company} logo`}
             width={40}
             height={40}
-            priority
             sizes="40px 40px"
             style={{
               width: "40px",

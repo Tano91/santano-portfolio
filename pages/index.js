@@ -27,29 +27,62 @@ export default function Home({ videoData }) {
   );
 }
 
-export async function getServerSideProps() {
-  const accessToken = process.env.NEXT_PUBLIC_VIMEO_BEARER_TOKEN;
-  const url =
-    "https://api.vimeo.com/me/videos?page=1&per_page=100&sort=alphabetical";
+const VIMEO_VIDEO_URL =
+  "https://api.vimeo.com/me/videos?page=1&per_page=100&sort=alphabetical";
+const VIMEO_REVALIDATE_SECONDS = 60 * 60 * 6;
+const VIMEO_REQUEST_TIMEOUT_MS = 10000;
+
+const getVimeoVideos = async () => {
+  const accessToken = process.env.VIMEO_BEARER_TOKEN;
+
+  if (!accessToken) {
+    console.warn("Missing VIMEO_BEARER_TOKEN; skipping Vimeo videos.");
+    return [];
+  }
+
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), VIMEO_REQUEST_TIMEOUT_MS);
 
   try {
-    const response = await fetch(url, {
+    const response = await fetch(VIMEO_VIDEO_URL, {
+      signal: controller.signal,
       headers: {
+        Accept: "application/json",
         Authorization: `Bearer ${accessToken}`,
       },
     });
+
+    if (!response.ok) {
+      throw new Error(`Vimeo request failed with ${response.status}`);
+    }
+
     const data = await response.json();
-    return {
-      props: {
-        videoData: data.data, // Pass the video data to the page component
-      },
-    };
+
+    if (!Array.isArray(data?.data)) {
+      return [];
+    }
+
+    return data.data
+      .map((video) => ({
+        title: video?.name ?? "Untitled video",
+        description: video?.description ?? "",
+        previewUrl: video?.link ?? "",
+        image: video?.pictures?.base_link ?? "",
+      }))
+      .filter((video) => video.previewUrl && video.image);
   } catch (error) {
-    console.error("Error:", error);
-    return {
-      props: {
-        videoData: [], //If there is an error
-      },
-    };
+    console.error("Unable to load Vimeo videos:", error);
+    return [];
+  } finally {
+    clearTimeout(timeout);
   }
+};
+
+export async function getStaticProps() {
+  return {
+    props: {
+      videoData: await getVimeoVideos(),
+    },
+    revalidate: VIMEO_REVALIDATE_SECONDS,
+  };
 }

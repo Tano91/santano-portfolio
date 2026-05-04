@@ -4,22 +4,22 @@ import ProjectTag from "./ProjectTag";
 
 const projectDataWeb = [
   {
+    title: "Dr Bird Pree",
+    description:
+      "A personal project I have been interested in attempting for some time. Made using React with Nextjs. I'm happy with the result, and aim to expand it further.",
+    image: "/project_images/dr_bird_pree",
+    tag: ["Web Dev"],
+    gitUrl: "https://github.com/Tano91/dr-bird-pree",
+    previewUrl: "https://dr-bird-pree.vercel.app",
+  },
+  {
     title: "YaadVentures",
     description:
-      "A passion project of mine. It aims to galvanize users to explore, discuss and submit hidden gens, popular attractions, and interesting areas that illustrate the beauty of Jamaica. It is in its infancy, with many more features planned such as Mapbox integration, authorization and authentication (coming very soon!). Take a look!",
+      "A passion project of mine. It aims to galvanize users to explore, discuss and submit hidden gens, popular attractions, and interesting areas that illustrate the beauty of Jamaica. It is in its infancy, with many more features planned such as Mapbox integration, authorization and authentication (coming soon, after some testing and planning!). Take a look!",
     image: "/project_images/yaadventures_thumb.png",
     tag: ["Web Dev"],
     gitUrl: "https://github.com/Tano91/yaadventures",
     previewUrl: "https://yaadventures.vercel.app",
-  },
-  {
-    title: "Wedding Administration System",
-    description:
-      "A project based on a wedding administration system that we used for project management in my previous job. It was riddled with bugs, so I challenged myself to see if I could make an improved version.",
-    image: "/project_images/was_thumb.png",
-    tag: ["Web Dev"],
-    gitUrl: "https://github.com/Tano91/was-muxt",
-    previewUrl: "https://was-muxt.vercel.app",
   },
   {
     title: "YT Blender",
@@ -287,13 +287,13 @@ const projectDataGraphic = [
   },
 ];
 
-const ProjectsSection = ({ id, videoData }) => {
+const ProjectsSection = ({ id, videoData = [] }) => {
   const projectDataVimeo = videoData.map((video) => {
     return {
-      title: video.name,
-      description: video.description ? video.description : "",
-      previewUrl: video.link,
-      image: video.pictures.base_link,
+      title: video.title,
+      description: video.description,
+      previewUrl: video.previewUrl,
+      image: video.image,
       tag: ["Motion Graphics"],
     };
   });
@@ -310,7 +310,7 @@ const ProjectsSection = ({ id, videoData }) => {
   };
 
   const filteredProjects = allProjectData.filter((project) =>
-    project.tag.includes(tag)
+    project.tag.includes(tag),
   );
 
   return (

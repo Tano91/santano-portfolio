@@ -47,7 +47,6 @@ const Navbar = () => {
         >
           <Image
             src={"/tano_logo_white.png"}
-            as="logo"
             alt="home logo"
             width={50}
             height={30}

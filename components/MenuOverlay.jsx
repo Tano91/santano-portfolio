@@ -11,8 +11,8 @@ const MenuOverlay = ({ links }) => {
   return (
     <ul className="flex flex-col py-4 items-center">
       {links.map((link, index) => (
-        <>
-          <li key={index} className="font-bold pb-3 pt-3 ">
+        <React.Fragment key={link.path}>
+          <li className="font-bold pb-3 pt-3 ">
             <NavLinks
               href={link.path}
               title={link.title}
@@ -20,7 +20,7 @@ const MenuOverlay = ({ links }) => {
             />
           </li>
           <div className="w-5 border-b border-white border-opacity-30"></div>
-        </>
+        </React.Fragment>
       ))}
     </ul>
   );

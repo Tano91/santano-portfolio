@@ -10,11 +10,9 @@ const SkillsCard = ({ header, skills }) => {
           <div key={index} className="flex space-x-3 mb-3">
             <Image
               src={item.image}
-              as="icon"
-              alt="skill icon"
+              alt={`${item.skill} icon`}
               width={25}
               height={25}
-              priority
               sizes="25px 25px"
               style={{
                 width: "25px",

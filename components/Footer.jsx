@@ -1,17 +1,13 @@
 import React from "react";
-import { HeartIcon, EnvelopeIcon } from "@heroicons/react/24/solid";
+import { EnvelopeIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
 
 export const Footer = ({ id }) => {
   return (
-    <div
-      id={id}
-      className='mt-10 className="fixed bot-0 left-0 right-0 z-10 bg-[#131e27] bg-opacity-100 px-5 py-3'
-    >
+    <div id={id} className="mt-10 bg-[#131e27] bg-opacity-100 px-5 py-3">
       <div className="text-[#949ea5] text-sm flex flex-col sm:flex-row justify-evenly items-center">
         <p className="flex text-center mb-5 sm:mb-0">
-          {" "}
-          © 2024 Santano McCalla - Made with ❤️ using React.js
+          (c) 2024 Santano McCalla - Made with care using React.js
         </p>
         <Link
           href={"mailto:santanomccalla@gmail.com"}
