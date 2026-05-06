@@ -3,9 +3,9 @@ import ExperienceCard from "./ExperienceCard";
 
 const Experience = ({ id }) => {
   return (
-    <section id={id} className="text-white pt-5 md:px-28">
+    <section id={id} className="scroll-mt-24 pt-12 text-white sm:pt-16 md:px-6 lg:px-20 xl:px-28">
       <div className="mb-10">
-        <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-center lg:text-start">
+        <h1 className="text-center text-2xl font-extrabold sm:text-3xl lg:text-start lg:text-4xl">
           Work Experience
         </h1>
       </div>

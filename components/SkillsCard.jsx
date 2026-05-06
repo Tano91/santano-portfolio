@@ -3,11 +3,11 @@ import Image from "next/image";
 
 const SkillsCard = ({ header, skills }) => {
   return (
-    <div className="mb-5 ">
-      <div className="bg-[#131e27] rounded-lg p-4">
+    <div className="h-full">
+      <div className="h-full rounded-lg bg-[#131e27] p-4">
         <h1 className="text-lg font-bold mb-3">{header}</h1>
         {skills.map((item, index) => (
-          <div key={index} className="flex space-x-3 mb-3">
+          <div key={index} className="mb-3 flex gap-3">
             <Image
               src={item.image}
               alt={`${item.skill} icon`}

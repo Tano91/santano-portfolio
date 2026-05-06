@@ -1,12 +1,14 @@
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import NavLinks from "./NavLink";
 import MenuOverlay from "./MenuOverlay";
 import Image from "next/image";
-import { useState } from "react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
 
 const Navbar = () => {
+  const navRef = useRef(null);
+  const [navbarOpen, setNavbarOpen] = useState(false);
+
   const navLinks = [
     {
       title: "About",
@@ -33,13 +35,34 @@ const Navbar = () => {
   const handleClick = (e, href) => {
     e.preventDefault(); // Prevent the default action
     const targetElement = document.querySelector(href);
-    targetElement.scrollIntoView({ behavior: "smooth" });
+    targetElement?.scrollIntoView({ behavior: "smooth" });
+    setNavbarOpen(false);
   };
 
-  const [navbarOpen, setNavbarOpen] = useState(false);
+  useEffect(() => {
+    if (!navbarOpen) {
+      return;
+    }
+
+    const closeMenuOnOutsideClick = (event) => {
+      if (navRef.current && !navRef.current.contains(event.target)) {
+        setNavbarOpen(false);
+      }
+    };
+
+    document.addEventListener("pointerdown", closeMenuOnOutsideClick);
+
+    return () => {
+      document.removeEventListener("pointerdown", closeMenuOnOutsideClick);
+    };
+  }, [navbarOpen]);
+
   return (
-    <nav className="fixed top-0 left-0 right-0 z-10 bg-[#131e27] bg-opacity-100">
-      <div className="flex flex-wrap items-center justify-between mx-auto px-12 py-4">
+    <nav
+      ref={navRef}
+      className="fixed left-0 right-0 top-0 z-20 bg-[#131e27] bg-opacity-100 shadow-lg shadow-black/20"
+    >
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-12">
         {/* Logo */}
         <Link
           href={"/"}
@@ -63,16 +86,18 @@ const Navbar = () => {
           {!navbarOpen ? (
             <button
               onClick={() => setNavbarOpen(true)}
-              className="flex items-center px-3 py-2 rounded-lg border border-slate-400 text-slate-400 hover:text-white hover:border-white active:scale-95 active:text-[#D01E4F] active:border-[#D01E4f] transition transform ease-out"
+              aria-label="Open navigation menu"
+              className="flex items-center rounded-lg border border-slate-400 px-3 py-2 text-slate-400 transition ease-out hover:border-white hover:text-white active:scale-95 active:border-[#D01E4f] active:text-[#D01E4F]"
             >
-              <Bars3Icon className="h-5" />
+              <Bars3Icon className="h-6 w-6" />
             </button>
           ) : (
             <button
               onClick={() => setNavbarOpen(false)}
-              className="flex items-center px-3 py-2 rounded-lg border border-slate-400 text-slate-400 hover:text-white hover:border-white active:scale-95 active:text-[#D01E4F] active:border-[#D01E4f] transition transform ease-out"
+              aria-label="Close navigation menu"
+              className="flex items-center rounded-lg border border-slate-400 px-3 py-2 text-slate-400 transition ease-out hover:border-white hover:text-white active:scale-95 active:border-[#D01E4f] active:text-[#D01E4F]"
             >
-              <XMarkIcon className="h-5" />
+              <XMarkIcon className="h-6 w-6" />
             </button>
           )}
         </div>
@@ -93,8 +118,8 @@ const Navbar = () => {
       </div>
       {/* Show Navlinks when Screen is below Medium and Navlinks is Open */}
       {navbarOpen && (
-        <div className="flex rounded-bl-2xl absolute right-0 pl-4 pr-8  md:hidden bg-[#D01E4f] w-36">
-          <MenuOverlay links={navLinks} />
+        <div className="absolute left-0 right-0 top-full border-t border-white/10 bg-[#D01E4f] px-4 py-2 shadow-xl md:hidden">
+          <MenuOverlay links={navLinks} onLinkClick={handleClick} />
         </div>
       )}
     </nav>

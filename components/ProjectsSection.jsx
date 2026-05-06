@@ -2,23 +2,41 @@ import React, { useState, useEffect } from "react";
 import ProjectCard from "./ProjectCard";
 import ProjectTag from "./ProjectTag";
 
+const PROJECT_ROWS_TO_SHOW = 2;
+const PROJECT_COLUMNS = {
+  mobile: 1,
+  tablet: 2,
+  desktop: 3,
+};
+const DEFAULT_VISIBLE_PROJECTS = PROJECT_ROWS_TO_SHOW * PROJECT_COLUMNS.desktop;
+
+const getVisibleProjectLimit = () => {
+  if (window.matchMedia("(min-width: 1280px)").matches) {
+    return PROJECT_ROWS_TO_SHOW * PROJECT_COLUMNS.desktop;
+  }
+
+  if (window.matchMedia("(min-width: 640px)").matches) {
+    return PROJECT_ROWS_TO_SHOW * PROJECT_COLUMNS.tablet;
+  }
+
+  return PROJECT_ROWS_TO_SHOW * PROJECT_COLUMNS.mobile;
+};
+
 const projectDataWeb = [
   {
     title: "Dr Bird Pree",
     description:
       "A personal project I have been interested in attempting for some time. Made using React with Nextjs. I'm happy with the result, and aim to expand it further.",
     image: "/project_images/dr_bird_pree.png",
-    tag: ["Web Dev"],
-    gitUrl: "https://github.com/Tano91/dr-bird-pree",
+    tag: ["Software Development"],
     previewUrl: "https://dr-bird-pree.vercel.app",
   },
   {
     title: "YaadVentures",
     description:
-      "A passion project of mine. It aims to galvanize users to explore, discuss and submit hidden gens, popular attractions, and interesting areas that illustrate the beauty of Jamaica. It is in its infancy, with many more features planned such as Mapbox integration, authorization and authentication (coming soon, after some testing and planning!). Take a look!",
+      "A passion project of mine. It aims to galvanize users to explore, discuss and submit hidden gens, popular attractions, and interesting areas that illustrate the beauty of Jamaica. It is in its infancy, with many more features planned like user authorization and authentication. Take a look!",
     image: "/project_images/yaadventures_thumb.png",
-    tag: ["Web Dev"],
-    gitUrl: "https://github.com/Tano91/yaadventures",
+    tag: ["Software Development"],
     previewUrl: "https://yaadventures.vercel.app",
   },
 ];
@@ -296,23 +314,49 @@ const ProjectsSection = ({ id, videoData = [] }) => {
   ];
 
   const [tag, setTag] = useState("Motion Graphics");
+  const [projectsExpanded, setProjectsExpanded] = useState(false);
+  const [visibleProjectLimit, setVisibleProjectLimit] = useState(
+    DEFAULT_VISIBLE_PROJECTS,
+  );
+
+  useEffect(() => {
+    const updateVisibleProjectLimit = () => {
+      setVisibleProjectLimit(getVisibleProjectLimit());
+    };
+
+    updateVisibleProjectLimit();
+    window.addEventListener("resize", updateVisibleProjectLimit);
+
+    return () => {
+      window.removeEventListener("resize", updateVisibleProjectLimit);
+    };
+  }, []);
+
   const handleTagChange = (newTag) => {
     setTag(newTag);
+    setProjectsExpanded(false);
   };
 
   const filteredProjects = allProjectData.filter((project) =>
     project.tag.includes(tag),
   );
+  const visibleProjects = projectsExpanded
+    ? filteredProjects
+    : filteredProjects.slice(0, visibleProjectLimit);
+  const shouldShowProjectToggle = filteredProjects.length > visibleProjectLimit;
 
   return (
-    <section id={id} className="text-white mt-10 md:px-28">
+    <section
+      id={id}
+      className="mt-12 scroll-mt-24 text-white sm:mt-16 md:px-6 lg:px-20 xl:px-28"
+    >
       <div className="mb-3">
-        <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-center lg:text-start">
+        <h1 className="text-center text-2xl font-extrabold sm:text-3xl lg:text-start lg:text-4xl">
           Projects
         </h1>
       </div>
       {/* Button Tags */}
-      <div className="text-white flex flex-col space-y-5 sm:space-y-0 sm:flex-row justify-center items-center gap-2 py-6">
+      <div className="flex flex-wrap items-center justify-center gap-3 py-6 text-white">
         <ProjectTag
           onClick={handleTagChange}
           name="Motion Graphics"
@@ -320,8 +364,8 @@ const ProjectsSection = ({ id, videoData = [] }) => {
         />
         <ProjectTag
           onClick={handleTagChange}
-          name="Web Dev"
-          isSelected={tag === "Web Dev"}
+          name="Software Development"
+          isSelected={tag === "Software Development"}
         />
 
         <ProjectTag
@@ -331,8 +375,8 @@ const ProjectsSection = ({ id, videoData = [] }) => {
         />
       </div>
       {/* Web */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-        {filteredProjects.map((project, index) => (
+      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3">
+        {visibleProjects.map((project, index) => (
           <ProjectCard
             key={index}
             title={project.title}
@@ -343,6 +387,17 @@ const ProjectsSection = ({ id, videoData = [] }) => {
           />
         ))}
       </div>
+      {shouldShowProjectToggle && (
+        <div className="mt-8 flex justify-center">
+          <button
+            type="button"
+            onClick={() => setProjectsExpanded((expanded) => !expanded)}
+            className="rounded-full border-2 border-[#D01E4F] px-7 py-3 font-bold text-white transition ease-out hover:scale-105 hover:bg-[#D01E4F] active:scale-95"
+          >
+            {projectsExpanded ? "View Less" : "View More"}
+          </button>
+        </div>
+      )}
     </section>
   );
 };

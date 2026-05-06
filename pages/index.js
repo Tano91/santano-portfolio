@@ -9,13 +9,13 @@ import Head from "next/head";
 
 export default function Home({ videoData }) {
   return (
-    <main className="flex min-h-screen flex-col bg-[#0e171e] ">
+    <main className="flex min-h-screen flex-col overflow-x-hidden bg-[#0e171e]">
       <Head>
         <link rel="icon" href="/tano_logo_head.png" />
         <title>Santano McCalla</title>
       </Head>
       <Navbar />
-      <div className="container mt-24 mx-auto px-12 py-4">
+      <div className="container mx-auto mt-20 px-4 py-4 sm:mt-24 sm:px-6 lg:px-12">
         <HeroSection />
         <AboutMe id="about" />
         <Skills id="skills" />

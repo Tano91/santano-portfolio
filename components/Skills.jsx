@@ -131,14 +131,14 @@ const frameworksSkills = [
 
 const Skills = ({ id }) => {
   return (
-    <section id={id} className="text-white mt-10 md:px-28">
+    <section id={id} className="mt-12 scroll-mt-24 text-white sm:mt-16 md:px-6 lg:px-20 xl:px-28">
       <div className="mb-10">
-        <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-center lg:text-start">
+        <h1 className="text-center text-2xl font-extrabold sm:text-3xl lg:text-start lg:text-4xl">
           Skills
         </h1>
       </div>
       {/* Skills Details */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5">
+      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
         <SkillsCard header={"Skill Sets"} skills={skillSetSkills} />
         <SkillsCard header={"Software"} skills={softwareSkills} />
         <SkillsCard header={"Languages"} skills={languagesSkills} />

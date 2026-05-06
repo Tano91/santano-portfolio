@@ -1,25 +1,22 @@
 import React from "react";
 import NavLinks from "./NavLink";
 
-const handleClick = (e, href) => {
-  e.preventDefault(); // Prevent the default action
-  const targetElement = document.querySelector(href);
-  targetElement.scrollIntoView({ behavior: "smooth" });
-};
-
-const MenuOverlay = ({ links }) => {
+const MenuOverlay = ({ links, onLinkClick }) => {
   return (
-    <ul className="flex flex-col py-4 items-center">
+    <ul className="flex max-h-[calc(100svh-4rem)] flex-col items-center overflow-y-auto py-3">
       {links.map((link, index) => (
         <React.Fragment key={link.path}>
-          <li className="font-bold pb-3 pt-3 ">
+          <li className="w-full py-1 text-center font-bold">
             <NavLinks
               href={link.path}
               title={link.title}
-              onClick={(e) => handleClick(e, link.path)}
+              onClick={(e) => onLinkClick(e, link.path)}
+              color="blue"
             />
           </li>
-          <div className="w-5 border-b border-white border-opacity-30"></div>
+          {index < links.length - 1 && (
+            <div className="w-full max-w-48 border-b border-white border-opacity-30"></div>
+          )}
         </React.Fragment>
       ))}
     </ul>

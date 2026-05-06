@@ -8,36 +8,25 @@ import {
 import TabButton from "./TabButton";
 import { useState, useTransition } from "react";
 
+const AwardItem = ({ children }) => (
+  <p className="flex items-start gap-3 text-sm italic sm:text-base">
+    <span className="mt-1 shrink-0">
+      <ChevronRightIcon className="h-3" />
+    </span>
+    <span>{children}</span>
+  </p>
+);
+
 const TAB_DATA = [
   {
     title: "Work Awards",
     id: "Work Awards",
     content: (
       <>
-        <p className="flex items-center  text-sm italic">
-          <span className="pr-8">
-            <ChevronRightIcon className="h-3" />
-          </span>{" "}
-          Platinum Team Member of the Year 2022 - 2023
-        </p>
-        <p className="flex items-center  text-sm italic">
-          <span className="pr-8">
-            <ChevronRightIcon className="h-3" />
-          </span>{" "}
-          Diamond Team Member Quarter 1 2022
-        </p>
-        <p className="flex items-center  text-sm italic">
-          <span className="pr-8">
-            <ChevronRightIcon className="h-3" />
-          </span>{" "}
-          Production Star Award 2018 - 2019
-        </p>
-        <p className="flex items-center  text-sm italic">
-          <span className="pr-8">
-            <ChevronRightIcon className="h-3" />
-          </span>{" "}
-          Video Editor of the Year 2018
-        </p>
+        <AwardItem>Platinum Team Member of the Year 2022 - 2023</AwardItem>
+        <AwardItem>Diamond Team Member Quarter 1 2022</AwardItem>
+        <AwardItem>Production Star Award 2018 - 2019</AwardItem>
+        <AwardItem>Video Editor of the Year 2018</AwardItem>
       </>
     ),
   },
@@ -46,31 +35,15 @@ const TAB_DATA = [
     id: "Educational Awards",
     content: (
       <>
-        <p className="flex items-center  text-sm italic">
-          <span className="pr-8">
-            <ChevronRightIcon className="h-3" />
-          </span>{" "}
-          Graduated with First Class Honours
-        </p>
-        <p className="flex items-center  text-sm italic">
-          <span className="pr-8">
-            <ChevronRightIcon className="h-3" />
-          </span>{" "}
+        <AwardItem>Graduated with First Class Honours</AwardItem>
+        <AwardItem>
           Outstanding Academic Performance in Digital Media Production
-        </p>
-        <p className="flex items-center  text-sm italic">
-          <span className="pr-8">
-            <ChevronRightIcon className="h-3" />
-          </span>{" "}
-          Dean's Honour Roll & Top Performing Student in Humanities and
+        </AwardItem>
+        <AwardItem>
+          Dean&apos;s Honour Roll & Top Performing Student in Humanities and
           Education Award
-        </p>
-        <p className="flex items-center  text-sm italic">
-          <span className="pr-8">
-            <ChevronRightIcon className="h-3" />
-          </span>{" "}
-          Mobay City Run Scholarship Recipient
-        </p>
+        </AwardItem>
+        <AwardItem>Mobay City Run Scholarship Recipient</AwardItem>
       </>
     ),
   },
@@ -78,7 +51,7 @@ const TAB_DATA = [
 
 export const AboutMe = ({ id }) => {
   const [tab, setTab] = useState("Work Awards");
-  const [isPending, startTransition] = useTransition();
+  const [, startTransition] = useTransition();
 
   const handleTabChange = (id) => {
     startTransition(() => {
@@ -86,42 +59,45 @@ export const AboutMe = ({ id }) => {
     });
   };
   return (
-    <section id={id} className="text-white pt-5 md:px-28">
+    <section
+      id={id}
+      className="scroll-mt-24 pt-12 text-white sm:pt-16 md:px-6 lg:px-20 xl:px-28"
+    >
       <div className="mb-10">
-        <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-center lg:text-start">
+        <h1 className="text-center text-2xl font-extrabold sm:text-3xl lg:text-start lg:text-4xl">
           About Me
         </h1>
       </div>
       {/* About Me Details */}
-      <div className="text-justify space-y-8">
-        <p className="flex items-center">
-          <span className="pr-8">
+      <div className="space-y-8 text-left md:text-justify">
+        <p className="flex items-start gap-4">
+          <span className="mt-1 shrink-0">
             <FingerPrintIcon className="h-4 text-[#D01E4F]" />
           </span>
-          Hi, I’m Santano! I’m a Digital Media Professional passionate about
-          Motion Design, Video Production, Web Development, Graphic Design &
-          Digital Marketing with over 10+ Years of experience!
+          Hi, I&apos;m Santano! I&apos;m a Digital Media Professional passionate
+          about Motion Design, Video Production, Web Development, Graphic Design
+          & Digital Marketing with over 10+ Years of experience!
         </p>
 
-        <p className="flex items-center">
-          <span className="pr-8">
+        <p className="flex items-start gap-4">
+          <span className="mt-1 shrink-0">
             <AcademicCapIcon className="h-4 text-[#D01E4F]" />
-          </span>{" "}
+          </span>
           I have a BA (Hons) in Digital Media Production - First Class Honours,
-          from The University of the West Indies, and I’ve remained dedicated to
-          meticulously honing my skills across a broad spectrum of digital media
-          production techniques.
+          from The University of the West Indies, and I&apos;ve remained
+          dedicated to meticulously honing my skills across a broad spectrum of
+          digital media production techniques.
         </p>
 
-        <p className="flex items-center">
-          <span className="pr-8">
+        <p className="flex items-start gap-4">
+          <span className="mt-1 shrink-0">
             <TrophyIcon className="h-4 text-[#D01E4F]" />
-          </span>{" "}
+          </span>
           I&apos;ve been fortunate to receive a range of awards throughout my
           career! Here are some examples:
         </p>
         {/* Awards */}
-        <div className="flex flex-row mt-8">
+        <div className="mt-8 flex flex-wrap gap-4 sm:gap-8">
           {/* Sandals Awards */}
           <TabButton
             selectTab={() => handleTabChange("Work Awards")}
@@ -143,10 +119,10 @@ export const AboutMe = ({ id }) => {
         </div>
         {/* OUTRO */}
 
-        <p className="flex items-center ">
-          <span className="pr-8">
+        <p className="flex items-start gap-4">
+          <span className="mt-1 shrink-0">
             <RocketLaunchIcon className="h-4 text-[#D01E4F]" />
-          </span>{" "}
+          </span>
           I excel in navigating busy schedules, efficiently juggling multiple
           projects, and embracing new challenges as opportunities for continuous
           learning and growth.
