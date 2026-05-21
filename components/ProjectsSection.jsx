@@ -384,6 +384,7 @@ const ProjectsSection = ({ id, videoData = [] }) => {
             imgUrl={project.image}
             gitUrl={project.gitUrl ? project.gitUrl : null}
             previewUrl={project.previewUrl}
+            protectImage={project.tag.includes("Graphic Design")}
           />
         ))}
       </div>
