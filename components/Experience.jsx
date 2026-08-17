@@ -3,7 +3,10 @@ import ExperienceCard from "./ExperienceCard";
 
 const Experience = ({ id }) => {
   return (
-    <section id={id} className="scroll-mt-24 pt-12 text-white sm:pt-16 md:px-6 lg:px-20 xl:px-28">
+    <section
+      id={id}
+      className="scroll-mt-24 pt-12 text-white sm:pt-16 md:px-6 lg:px-20 xl:px-28"
+    >
       <div className="mb-10">
         <h1 className="text-center text-2xl font-extrabold sm:text-3xl lg:text-start lg:text-4xl">
           Work Experience
@@ -14,7 +17,7 @@ const Experience = ({ id }) => {
         image={"/company_logos/dcag_32x32.png"}
         company={"Driving Change Automotive Group"}
         position={"Content Specialist"}
-        date={"May 2024 - Present"}
+        date={"May 2024 - April 2026"}
         details={""}
       />
       <ExperienceCard
